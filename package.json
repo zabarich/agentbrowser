@@ -1,5 +1,5 @@
 {
-  "name": "agentbrowser",
+  "name": "@zabarich/agentbrowser",
   "version": "0.1.0",
   "description": "A TypeScript-native autonomous browser agent for Node.js, inspired by browser-use. Give an LLM a task and a headless browser — it observes, decides, and acts autonomously.",
   "type": "module",
