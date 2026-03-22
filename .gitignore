@@ -1,4 +1,5 @@
 .env
+.github-token
 node_modules/
 dist/
 PROMPT.md
