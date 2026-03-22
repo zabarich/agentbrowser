@@ -3,12 +3,15 @@
 A TypeScript-native autonomous browser agent for Node.js, inspired by
 [browser-use](https://github.com/browser-use/browser-use).
 
-Give an LLM a task and a browser. It figures out the rest — navigating pages,
-clicking elements, filling forms, extracting data, and recovering from errors.
-No Python, no brittle selectors, no manual scripting.
+Give an LLM a task and a headless browser. The agent observes the page,
+decides what to do, executes actions, and repeats — navigating, clicking,
+filling forms, and extracting data autonomously.
 
-Built on Playwright. Supports Anthropic Claude, OpenAI, and any OpenAI-compatible
-local model server (llama.cpp, Ollama, vLLM, LM Studio).
+Early but functional. Built on Playwright + Anthropic/OpenAI-compatible LLMs.
+
+> **Status:** v0.1.0 — core agent loop works, tested against real sites
+> and local models. Not yet battle-tested on hostile pages, auth flows,
+> or complex SPAs. Contributions welcome.
 
 ## Install
 
