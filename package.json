@@ -23,23 +23,26 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "browser",
-    "automation",
-    "agent",
+    "browser-agent",
+    "autonomous",
+    "playwright",
     "llm",
     "ai",
-    "playwright",
+    "web-automation",
     "anthropic",
-    "claude",
-    "web-scraping",
+    "openai",
     "browser-use"
   ],
-  "author": "",
+  "author": "zabarich",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/zabarich/agentbrowser.git"
   },
+  "bugs": {
+    "url": "https://github.com/zabarich/agentbrowser/issues"
+  },
+  "homepage": "https://github.com/zabarich/agentbrowser#readme",
   "engines": {
     "node": ">=18.0.0"
   },
