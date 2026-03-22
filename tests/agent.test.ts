@@ -199,7 +199,7 @@ describe('Agent', () => {
     const result = await agent.run();
 
     expect(result.success).toBe(false);
-    expect(result.failureCount).toBeGreaterThan(0);
+    expect(result.totalFailures).toBeGreaterThan(0);
   });
 
   it('should track visited URLs', async () => {

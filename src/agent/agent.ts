@@ -45,6 +45,8 @@ export class Agent {
   private screenshots: Buffer[] = [];
   private visitedUrls: Set<string> = new Set();
   private consecutiveFailures = 0;
+  private totalFailures = 0;
+  private stepsCompleted = 0;
   private isDone = false;
   private doneText: string | null = null;
   private doneSuccess = false;
@@ -112,6 +114,7 @@ export class Agent {
           return this.buildResult(startTime, false, error.message);
         }
 
+        this.stepsCompleted = step;
         try {
           const stepDone = await this.step(step);
           if (stepDone) {
@@ -119,6 +122,7 @@ export class Agent {
           }
         } catch (err) {
           this.consecutiveFailures++;
+          this.totalFailures++;
           const message = err instanceof Error ? err.message : String(err);
           console.error(`[agentbrowser] Step ${step} error: ${message}`);
 
@@ -249,6 +253,7 @@ export class Agent {
     const anyFailed = actionResults.some((r) => r && !r.success);
     if (anyFailed) {
       this.consecutiveFailures++;
+      this.totalFailures++;
     } else {
       this.consecutiveFailures = 0;
     }
@@ -390,8 +395,9 @@ export class Agent {
       history: this.history,
       visitedUrls: [...this.visitedUrls],
       screenshots: this.screenshots.length > 0 ? this.screenshots : undefined,
-      stepsUsed: this.history.length,
-      failureCount: this.consecutiveFailures,
+      stepsUsed: this.stepsCompleted,
+      consecutiveFailures: this.consecutiveFailures,
+      totalFailures: this.totalFailures,
       duration: Date.now() - startTime,
       error,
     };

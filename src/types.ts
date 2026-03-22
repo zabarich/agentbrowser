@@ -40,7 +40,8 @@ export interface AgentResult {
   screenshots?: Buffer[];
   error?: string;
   stepsUsed: number;
-  failureCount: number;
+  consecutiveFailures: number;
+  totalFailures: number;
   duration: number;
 }
 

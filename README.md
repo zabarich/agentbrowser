@@ -122,11 +122,12 @@ interface AgentResult {
   finalResult: string | null;
   history: AgentStep[];
   visitedUrls: string[];
-  screenshots?: Buffer[];   // One per step (when useVision is true)
+  screenshots?: Buffer[];       // One per step (when useVision is true)
   error?: string;
-  stepsUsed: number;
-  failureCount: number;
-  duration: number;          // ms
+  stepsUsed: number;            // Observe-think-act cycles completed
+  consecutiveFailures: number;  // Failure streak at time of stop
+  totalFailures: number;        // Lifetime failure count (never resets)
+  duration: number;             // ms
 }
 
 interface AgentStep {
