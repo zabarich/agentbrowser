@@ -2,7 +2,9 @@
 
 ## v0.1 — Core Agent (Current)
 
-- [x] Anthropic Claude as LLM provider
+- [x] Anthropic Claude LLM provider
+- [x] OpenAI-compatible LLM provider (OpenAI, llama.cpp, Ollama, vLLM, LM Studio)
+- [x] Auto-disable vision for local text-only models
 - [x] Playwright-based browser automation
 - [x] Agent loop: observe-think-act cycle
 - [x] DOM extraction and indexed serialization
@@ -10,17 +12,16 @@
 - [x] Loop detection and failure recovery
 - [x] Message compaction for long-running tasks
 - [x] System prompts adapted from browser-use
+- [x] 148 unit tests, 4 working examples
 
 ### Known Limitations (v0.1)
 
 - **Event listener detection:** Cannot detect `addEventListener()` JS listeners (requires CDP). Uses attribute/role heuristics instead, covering ~90% of interactive elements.
 - **Paint order filtering:** Does not detect occluded elements via z-index/paint order.
-- **Single LLM provider:** Anthropic only. The `LLMProvider` interface supports adding others.
 - **Local browser only:** No cloud browser session support.
 
 ## v0.2 — Planned
 
-- [ ] OpenAI GPT provider
 - [ ] Google Gemini provider
 - [ ] CDP-based event listener detection for better interactive element coverage
 - [ ] Paint order filtering for occluded elements
@@ -30,7 +31,6 @@
 
 ## v0.3 — Future
 
-- [ ] Ollama / local model support
 - [ ] Cloud browser sessions (Browserbase, etc.)
 - [ ] File system operations (read/write files during tasks)
 - [ ] Skill modules for reusable workflows
